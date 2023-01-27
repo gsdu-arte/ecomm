@@ -100,7 +100,7 @@ paths:
             application/json:
               example: 'Not Found'
 
-/api/products:
+  /api/products:
     get:
       summary: Recupera todos os produtos
       responses:
@@ -110,37 +110,37 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Produtos'
-/api/admin/products:
-  post:
-    summary: Insere um novo produto
-    responses:
-      201:
-        description: Produto inserido com sucesso
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Produto'
-/api/products/{id}:
-  parameters:
-  - name: id
-    in: path
-    schema:
-      type: integer
-    required: true
-  get:
-    summary: Recupera um produto pelo id
-    responses:
-      200:
-        description: Produto listado com sucesso
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Produto'
-      404:
-        description: Produto não encontrado
-        content:
-          application/json:
-            example: 'Not Found'
+  /api/admin/products:
+    post:
+      summary: Insere um novo produto
+      responses:
+        201:
+          description: Produto inserido com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+  /api/products/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera um produto pelo id
+      responses:
+        200:
+          description: Produto listado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
 
 components:
   schemas:
