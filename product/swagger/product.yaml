@@ -85,6 +85,20 @@ paths:
           content:
             application/json:
               example: 'Not Found'
+    patch:
+      summary: Altera o status de uma categoria
+      responses:
+        200:
+          description: Status da categoria alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
 
 components:
   schemas:
