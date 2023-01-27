@@ -141,6 +141,60 @@ paths:
           content:
             application/json:
               example: 'Not Found'
+  /api/admin/products/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    put:
+      summary: Altera os dados de um produto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        200:
+          description: Produto alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
+    delete:
+      summary: Deleta um produto
+      responses:
+        200:
+          description: Produto deletado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
+    patch:
+      summary: Altera o status de um produto
+      responses:
+        200:
+          description: Status da produto alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrada
+          content:
+            application/json:
+              example: 'Not Found' 
 
 components:
   schemas:
