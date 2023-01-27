@@ -71,6 +71,20 @@ paths:
           content:
             application/json:
               example: 'Not Found'
+    delete:
+      summary: Deleta uma categoria
+      responses:
+        200:
+          description: Categoria deletada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
 
 components:
   schemas:
