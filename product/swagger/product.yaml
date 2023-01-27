@@ -110,6 +110,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Produtos'
+/api/admin/products:
+  post:
+    summary: Insere um novo produto
+    responses:
+      201:
+        description: Produto inserido com sucesso
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
 
 components:
   schemas:
