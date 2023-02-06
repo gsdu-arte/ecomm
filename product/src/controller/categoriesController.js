@@ -3,20 +3,27 @@ import validate from '../validations/categoriesValidations.js'
 
 const categoriesController = {
   listAllCategories: async (_req, res) => {
-    const data = await categoryModel.find();
+    const categories = await categoryModel.find();
   
-    return res.status(200).json(data);
+    return res.status(200).json(categories);
+  },
+
+  listCategoryById: async (req, res) => {
+    const isValid = validate.validateId(req.params.id);
+    const category = await categoryModel.findById(isValid.value);
+
+    return res.status(200).json(category);
   },
 
   createCategory: async (req, res) => {
     const isValid = validate.validateBody(req.body);
     
+    console.log(isValid.error);
     if (isValid.error) {
       return res.status(500).json({ message: isValid.error.message})
     }
 
-    const newCategory = await categoryModel.create(req.body);
-    console.log(newCategory);
+    const newCategory = await categoryModel.create(isValid.value);
     
     return res.status(201).json(newCategory);
   }
