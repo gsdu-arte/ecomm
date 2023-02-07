@@ -9,8 +9,7 @@ const categoriesController = {
   },
 
   listCategoryById: async (req, res) => {
-    const isValid = validate.validateId(req.params.id);
-    const category = await categoryModel.findById(isValid.value);
+    const category = await categoryModel.findById(req.params.id);
 
     return res.status(200).json(category);
   },
