@@ -14,6 +14,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Categorias'
+        404:
+          description: Categorias não encontradas
+          content:
+            application/json:
+              example: 'Not Found'
   /api/admin/categories:
     post:
       summary: Insere uma nova categoria
@@ -110,6 +115,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Produtos'
+        404:
+          description: Produtos não encontrados
+          content:
+            application/json:
+              example: 'Not Found'
   /api/admin/products:
     post:
       summary: Insere um novo produto
