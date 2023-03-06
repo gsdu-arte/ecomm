@@ -1,0 +1,244 @@
+openapi: 3.0.3
+info:
+  title: Ecomm Products
+  description: API que consulta os produtos de um e-commerce (em desenvolvimento)
+  version: 0.0.1
+paths:
+  /api/categories:
+    get:
+      summary: Recupera todas as categorias
+      responses:
+        200:
+          description: Categorias listadas com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categorias'
+        404:
+          description: Categorias não encontradas
+          content:
+            application/json:
+              example: 'Not Found'
+  /api/admin/categories:
+    post:
+      summary: Insere uma nova categoria
+      responses:
+        201:
+          description: Categoria inserida com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+  /api/categories/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera uma categoria pelo id
+      responses:
+        200:
+          description: Categoria listada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
+  /api/admin/categories/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    put:
+      summary: Altera os dados de uma categoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Categoria'
+      responses:
+        200:
+          description: Categoria alterada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
+    delete:
+      summary: Deleta uma categoria
+      responses:
+        200:
+          description: Categoria deletada com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
+    patch:
+      summary: Altera o status de uma categoria
+      responses:
+        200:
+          description: Status da categoria alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Categoria'
+        404:
+          description: Categoria não encontrada
+          content:
+            application/json:
+              example: 'Not Found'
+
+  /api/products:
+    get:
+      summary: Recupera todos os produtos
+      responses:
+        200:
+          description: Produtos listados com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produtos'
+        404:
+          description: Produtos não encontrados
+          content:
+            application/json:
+              example: 'Not Found'
+  /api/admin/products:
+    post:
+      summary: Insere um novo produto
+      responses:
+        201:
+          description: Produto inserido com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+  /api/products/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    get:
+      summary: Recupera um produto pelo id
+      responses:
+        200:
+          description: Produto listado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
+  /api/admin/products/{id}:
+    parameters:
+    - name: id
+      in: path
+      schema:
+        type: integer
+      required: true
+    put:
+      summary: Altera os dados de um produto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Produto'
+      responses:
+        200:
+          description: Produto alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
+    delete:
+      summary: Deleta um produto
+      responses:
+        200:
+          description: Produto deletado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrado
+          content:
+            application/json:
+              example: 'Not Found'
+    patch:
+      summary: Altera o status de um produto
+      responses:
+        200:
+          description: Status da produto alterado com sucesso
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Produto'
+        404:
+          description: Produto não encontrada
+          content:
+            application/json:
+              example: 'Not Found' 
+
+components:
+  schemas:
+    Categoria:
+      type: object
+      properties:
+        id:
+          type: integer
+        nome:
+          type: string
+        status:
+          type: string
+    Categorias:
+      type: array
+      items:
+        $ref: '#/components/schemas/Categoria'
+    Produto:
+      type: object
+      properties:
+        id:
+          type: integer
+        produto:
+          type: string
+        descricao:
+          type: string
+        slug:
+          type: string
+        precoUnitario:
+          type: number
+        quantidadeEmEstoque:
+          type: integer
+        categoria:
+          type: string
+    Produtos:
+      type: array
+      items:
+        $ref: '#/components/schemas/Produto'
