@@ -2,7 +2,8 @@
 
 Projeto de Ecommerce criando durante o programa LevelUp da Alura
 
-----------------------------------------
+------------------------------------------
+
 # The Twelve-Factors App
 
 A aplicação doze-fatores é uma metodologia para construir softwares como serviço
@@ -66,4 +67,36 @@ Ainda não foi implementado no projeto
 ## XII. Processos Administrativos
 "Rode tarefas de administração/gestão em processos pontuais"
 
+Ainda não foi implementado no projeto
+
+------------------------------------------
+
+# Microservices Patterns
+
+Microsserviços são pequenos pedaços de uma aplicação maior, cada um desses pedaços tem uma responsabilidade muito bem definida.
+
+## Serviços de Domínio
+A aplicação está dividida em alguns pequenos contextos específicos e utiliza o padão API REST nos serviços
+
+## Serviços de Negócios
+Algumas operações possuem interações com mais de um domínio
+
+## API Gateway
+Ainda não foi implementado no projeto
+
+## Agregador de Processos
+Possui algumas operações que precisam interagir com mais de um domínio
+## Edge Service
+Ainda não foi implementado no projeto
+
+## Single Database vs. Bancos Diferentes
+Foram utilizados múltiplos bancos de dados
+
+## Eventos Assíncronos
+Foram utilizados eventos síncronos e assíncronos
+
+## Agregação de Logs
+Ainda não foi implementado no projeto
+
+## Agregação de Métricas
 Ainda não foi implementado no projeto
