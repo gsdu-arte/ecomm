@@ -71,32 +71,53 @@ Ainda não foi implementado no projeto
 
 ------------------------------------------
 
-# Microservices Patterns
+# Microservices
 
 Microsserviços são pequenos pedaços de uma aplicação maior, cada um desses pedaços tem uma responsabilidade muito bem definida.
 
-## Serviços de Domínio
+## Patterns
+### Serviços de Domínio
 A aplicação está dividida em alguns pequenos contextos específicos e utiliza o padão API REST nos serviços
 
-## Serviços de Negócios
+### Serviços de Negócios
 Algumas operações possuem interações com mais de um domínio
 
-## API Gateway
+### API Gateway
 Ainda não foi implementado no projeto
 
-## Agregador de Processos
+### Agregador de Processos
 Possui algumas operações que precisam interagir com mais de um domínio
-## Edge Service
+### Edge Service
 Ainda não foi implementado no projeto
 
-## Single Database vs. Bancos Diferentes
+### Single Database vs. Bancos Diferentes
 Foram utilizados múltiplos bancos de dados
 
-## Eventos Assíncronos
-Foram utilizados eventos síncronos e assíncronos
+### Eventos Assíncronos
+Foram utilizados eventos síncronos
 
-## Agregação de Logs
+### Agregação de Logs
 Ainda não foi implementado no projeto
 
-## Agregação de Métricas
+### Agregação de Métricas
 Ainda não foi implementado no projeto
+
+## Aspectos
+### Padronização das Stacks
+Todos os serviços foram desenvolvidos utilizando JavaScript respeitando a padronização da linguagem
+
+### Solução para Service Discovery
+Esse serviço localiza redes automaticamente e integra tudo através de uma linguagem em comum na rede de comunicação, podemos utilizar load balancers ou pods do Kubernetes
+
+### Aspectos de Segurança
+Foi aplicado nos serviços o uso de token JWT e criptografia de senha utilizando hash para salvá-las no banco
+
+### Tecnologias para Deploy e Build
+Realizar testes e verificar o estilo de código de acordo com a linguagem utilizada são importantes em um processo de build, na aplicação foram utilizadas o Jest e o ESLint respectivamente.
+Para o deploy precisamos de uma pipeline, que é um fluxo de trabalho que torna o deploy possível, para isso poderiamos utilizar o GitHub Actions, o Travis CI ou o Jenkins
+
+### Tolerância a Falhas em Aplicações Síncronas
+A aplicação é síncrona portanto as mais indicadas são o circuit breaker e o cache pois poupam o servidor de sofrer sobrecargas
+
+## Comunicação Assíncrona
+Usamos a comunicação assíncrona quando um serviço necessita de outro para retornar uma resposta. Pode ser usada entre o finance e o order, quando um cliente realizar um pagamento uma ordem é gerada para que a encomenda seja enviada
